@@ -27,3 +27,12 @@
 .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
     box-shadow: none !important;
 }
+
+.p-button{
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.p-button-label {
+    flex: none !important;
+}
