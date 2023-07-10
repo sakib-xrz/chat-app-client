@@ -16,7 +16,7 @@ const Signup = () => {
 
     const [loading, setLoading] = useState(false);
     const [gender, setGender] = useState(null);
-    const [photo, setPhoto] = useState(null);
+    const [photo, setPhoto] = useState("");
 
     const [error, setError] = useState({
         error: "",
@@ -48,9 +48,15 @@ const Signup = () => {
         try {
             setLoading(true);
 
-            const uploadImage = await axios.post(IMAGE_BB_URL, formData);
-            const image = uploadImage?.data?.data?.display_url;
-            const userData = { name, email, password, gender, image };
+            let userData;
+
+            if (photo) {
+                const uploadImage = await axios.post(IMAGE_BB_URL, formData);
+                const image = uploadImage?.data?.data?.display_url;
+                userData = { name, email, password, gender, image };
+            } else {
+                userData = { name, email, password, gender };
+            }
 
             const { data } = await axios.post(
                 `${BASE_URL}/users/register`,
@@ -63,7 +69,7 @@ const Signup = () => {
                 life: 3000,
             });
             setLoading(false);
-
+            setPhoto("");
             form.reset();
         } catch (error) {
             const errorMessage = error?.response?.data?.message;

@@ -6,24 +6,25 @@ const Chats = () => {
     const [chats, setChats] = useState([]);
     const [loading, setLoading] = useState(true);
     
-    const fetchChats = async () => {
-        const { data } = await axios.get(`${BASE_URL}/chats`);
-        setChats(data);
-        setLoading(false);
-    };
-    useEffect(() => {
-        fetchChats();
-    }, []);
+    // const fetchChats = async () => {
+    //     const { data } = await axios.get(`${BASE_URL}/chats`);
+    //     setChats(data);
+    //     setLoading(false);
+    // };
+    // useEffect(() => {
+    //     fetchChats();
+    // }, []);
 
     return (
         <div className="flex justify-center">
             <div>
-                <h2> Chats </h2>
                 {loading ? (
-                    <i
-                        className="pi pi-spin pi-spinner"
-                        style={{ fontSize: "2rem" }}
-                    ></i>
+                    <div className="min-h-screen flex items-center justify-center">
+                        <i
+                            className="pi pi-spin pi-spinner"
+                            style={{ fontSize: "2rem" }}
+                        ></i>
+                    </div>
                 ) : (
                     chats?.map((chat) => (
                         <li key={chat?._id}>{chat?.chatName}</li>
