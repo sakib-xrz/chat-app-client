@@ -7,6 +7,7 @@ export default function LogoutButton() {
   const router = useRouter();
   return (
     <div className="mt-auto ">
+      <div></div>
       <div
         onClick={() => router.push("/logout")}
         className="flex items-center gap-2 bg-red-500 w-fit py-1.5 pl-2 pr-3 rounded-lg cursor-pointer"

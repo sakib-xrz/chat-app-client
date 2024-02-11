@@ -19,9 +19,9 @@ export default function MessageContainer() {
       ) : (
         <>
           {/* Header */}
-          <div className="bg-slate-500 px-4 py-2 mb-2">
-            <span className="label-text">To:</span>{" "}
-            <span className="text-gray-900 font-bold">
+          <div className="border-b border-slate-500 px-4 py-2 mb-2">
+            <span className="text-white font-semibold">To:</span>{" "}
+            <span className="text-white font-semibold">
               {selectedConversation.name}
             </span>
           </div>
