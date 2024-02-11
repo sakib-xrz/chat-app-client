@@ -1,3 +1,5 @@
+"use client";
+
 import MessageContainer from "@/components/messages/MessageContainer";
 import AuthGuardHOC from "@/components/shared/AuthGaurdHOC";
 import Sidebar from "@/components/sidebar/Sidebar";

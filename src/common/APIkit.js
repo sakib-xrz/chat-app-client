@@ -25,6 +25,24 @@ const APIKit = {
       return client.get(url);
     },
   },
+
+  user: {
+    getAllUser: () => {
+      const url = "/user";
+      return client.get(url);
+    },
+  },
+
+  conversation: {
+    sendMessage: (senderId, message) => {
+      const url = `/message/send/${senderId}`;
+      return client.post(url, message);
+    },
+    getMessages: (receiverId) => {
+      const url = `/message/${receiverId}`;
+      return client.get(url);
+    },
+  },
 };
 
 export default APIKit;
