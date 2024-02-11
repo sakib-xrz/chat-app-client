@@ -5,10 +5,11 @@ import APIKit from "@/common/APIkit";
 import { useEffect, useRef } from "react";
 import MessageSkeleton from "../skeleton/MessageSkeleton";
 import { TiMessages } from "react-icons/ti";
+import useListenMessages from "@/hooks/useListenMessages";
 
 export default function Messages() {
   const { messages, setMessages, selectedConversation } = useConversation();
-
+  useListenMessages();
   const lastMessageRef = useRef();
 
   useEffect(() => {
